@@ -7,15 +7,29 @@
 //
 
 import UIKit
+import SnapKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    static let StatusBarHeight: CGFloat = {
+        return (UIDevice.isIphoneX) ? CGFloat(44.0) : CGFloat(20.0)
+    }()
+    
+    static let ScreenWidth = UIScreen.main.bounds.width
+    static let ScreenHeight = UIScreen.main.bounds.height
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let rootVC = ViewController()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = UIColor.white
+        window?.rootViewController = rootVC
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
